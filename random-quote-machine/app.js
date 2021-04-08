@@ -3,7 +3,7 @@ const App = () => {
 
   const [quotes, setQuotes] = React.useState([]);
   const [rQuote, setRquote] = React.useState("");
-  const [color, setColor] = React.useState("#8A2BE2");
+  const [color, setColor] = React.useState("#8A5BE2");
 
   React.useEffect (() => {
     async function fetchData (){
@@ -40,7 +40,7 @@ const App = () => {
     <div id="quote-box" className= "container pt-5">
       <div className="mb-5">
           <div className="card">
-            <div className="card-header">Quotes</div>
+            <div className="card-header fw-bold">Quotes</div>
             <div className="card-body">
               {rQuote ? (
                 <>
@@ -49,14 +49,16 @@ const App = () => {
                 </>
               ) : (
                 <h3> Hold a second! </h3>) }
-                <div className="row">
-                  <button id="new-quote" className="btn btn-primary ml-4 mt-2 w-25" onClick={getNextQuote}>Next Quote</button>
-                  <a target="_blank" id="tweet-quote" href="https://twitter.com/intent/tweet" className="btn btn-warning ">
+                <div id="buttons" className="column">
+                  <button id="new-quote" className="btn btn-primary mt-2" onClick={getNextQuote}>Next Quote</button>
+                  <div className="row mx-auto">
+                  <a target="_blank" id="tweet-quote" href="https://twitter.com/intent/tweet" className="btn btn-info">
                     <i class="fa fa-twitter" aria-hidden="true"></i>
                   </a>
                   <a target="_blank" href="https://www.tumblr.com/" className="btn btn-warning ">
-                  <i class="fa fa-tumblr" aria-hidden="true"></i>
+                  <i class="fa fa-tumblr btn-sm" aria-hidden="true"></i>
                   </a>
+                  </div>
                 </div>
             </div>
           </div>
