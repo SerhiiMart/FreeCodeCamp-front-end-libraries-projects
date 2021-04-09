@@ -8,13 +8,13 @@ body {
 }
 h4{
   border: 3px outset rgb(199, 193, 194);
-  box-shadow: 0 0 0 10px skyblue;
+  box-shadow: 3px 0 0 8px skyblue;
   border-radius: 12px;
   font: bold 24px sans-serif;
-  margin: 8px;
+  margin: 10px 0 8px 0;
   padding: 8px;
   outline-offset: 8px;
-  color: rgb(236, 240, 29);
+  color: rgb(246, 247, 215);
 }
 
 #preview {

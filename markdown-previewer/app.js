@@ -3,8 +3,6 @@ const renderer = new marked.Renderer();
 const APP = () => {
   const [text, setText] = React.useState("");
 
-  
-  
   return (
     <div className="text-center px-5"> 
         <h4> Markdown Previewer App </h4> 
