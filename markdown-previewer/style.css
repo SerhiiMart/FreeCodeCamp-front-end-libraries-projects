@@ -18,12 +18,12 @@ h4{
 }
 
 #preview {
-  min-height: 200px;
-  letter-spacing: 0.7px;
-  text-align: left;
   overflow-wrap: break-word;
   -ms-word-wrap: break-word;
   word-wrap: break-word;
+  height: 200px;
+  letter-spacing: 0.7px;
+  text-align: left;
   background-color: rgb(0, 0, 0);
   border: 10px rgb(230, 26, 26);
   box-shadow: 0 0 0 3px rgb(117, 140, 150);
