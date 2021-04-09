@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color:  rgb(120, 155, 155);
+  color: rgb(33, 48, 47);
+}
+h4{
+  border: 3px outset rgb(199, 193, 194);
+  box-shadow: 0 0 0 10px skyblue;
+  border-radius: 12px;
+  font: bold 24px sans-serif;
+  margin: 8px;
+  padding: 8px;
+  outline-offset: 8px;
+  color: rgb(236, 240, 29);
+}
+
+#preview {
+  min-height: 200px;
+  letter-spacing: 0.7px;
+  text-align: left;
+  overflow-wrap: break-word;
+  -ms-word-wrap: break-word;
+  word-wrap: break-word;
+  background-color: rgb(0, 0, 0);
+  border: 10px rgb(230, 26, 26);
+  box-shadow: 0 0 0 3px rgb(117, 140, 150);
+  color: white;
+  margin-bottom: 10px;
+  margin-top: 15px;
+  text-overflow:clip;
+}
+#preview code {
+  background-color: slategray;
+  border-radius: 5px;
+  padding: 5px 0;
+  font-size: 12px;
+  font-weight: bold;
+}
+#preview pre {
+  background-color: slategray;
+  padding: 5px;
+}
+
+
+.textarea {
+  font: bold 20px sans-serif;
+  width: 90%;
+  border: 8px outset rgb(110, 100, 102);
+  box-shadow: 0 0 0 10px rgb(89, 117, 128);
+  padding-top: 18px;
+  margin-top: 18px;
+  margin-bottom: 5px;
+}
+
+.textarea:focus{
+  border: 8px outset rgb(221, 120, 140);
+  box-shadow: 0 0 0 10px rgb(92, 181, 216);
+}
