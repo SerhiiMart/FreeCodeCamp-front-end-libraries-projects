@@ -54,13 +54,20 @@ const audioDrum = [
     url: 'https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3'
   }
 ];
+
+const Drum = ({e}) => { 
+  return <button className="btn btn-secondary p-6 m-4"></button>
+} 
+
 const App = () => {
   return (
     <>
       <main id="drum-machine" className="bg-primary text-white min-vh-100">
         <div className="text-center"> 
         <h2 className=""> Drum Machine </h2>
-        {audioDrum}
+        {audioDrum.map(e => (
+          <Drum key={e.id} e={e} />
+        ))}
         </div> 
       </main>
     </>
