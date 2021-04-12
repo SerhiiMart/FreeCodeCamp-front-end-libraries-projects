@@ -55,24 +55,40 @@ const audioDrum = [
   }
 ];
 
-const Drum = ({e}) => {
+function Drum({e}) {
+  const [active, setActive] = React.useState(false);
+  
+  React.useEffect(() => {
+    document.addEventListener("keydown", buttonHandler);
+    return () => {
+      document.removeEventListener("keydown", buttonHandler)
+    };
+  }, []);
+
+  const buttonHandler = (event) => {
+    if(event.keyCode === e.keyCode) {
+      playDrum();
+    }
+  };
   const playDrum = () => {
     const audioTag = document.getElementById(e.keyTrigger);
+    setActive(true);
+    setTimeout(() => setActive(false), 500);
     audioTag.currentTime = 0;
     audioTag.play();
-  }
-  return (<button className="btn btn-dark p-6 m-4" onClick={playDrum}><audio className="clip" id={e.keyTrigger} src={e.url} />
-  {e.keyTrigger}
-  </button>);
-}
+  };
 
+  return (<button className={`btn btn-dark p-4 m-4 ${active && "btn-outline-danger"}`} onClick={playDrum}><audio className="clip" id={e.keyTrigger} src={e.url} />
+  {e.keyTrigger}
+  </button>)
+}
 
 const App = () => {
 
    return (
       <main id="drum-machine" className="bg-primary text-white min-vh-100">
         <div id="display" className="text-center"> 
-        <h2 className=""> Drum Machine </h2>
+        <h2 className="header"> React Drum Machine </h2>
         {audioDrum.map(e => (
           <Drum key={e.id}  e={e} />
         ))}
