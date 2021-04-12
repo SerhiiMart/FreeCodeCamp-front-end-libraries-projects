@@ -55,7 +55,7 @@ const audioDrum = [
   }
 ];
 
-function Drum({e}) {
+function Drum({e, volume, setRecording}) {
   const [active, setActive] = React.useState(false);
   
   React.useEffect(() => {
@@ -75,23 +75,58 @@ function Drum({e}) {
     setActive(true);
     setTimeout(() => setActive(false), 500);
     audioTag.currentTime = 0;
+    audioTag.volume = volume;
+    setRecording(prev => prev + e.keyTrigger + " ");
     audioTag.play();
   };
 
-  return (<button className={`btn btn-dark p-4 m-4 ${active && "btn-outline-danger"}`} onClick={playDrum}><audio className="clip" id={e.keyTrigger} src={e.url} />
+  return (<button id={e.id} className={`btn btn-dark drum-pad text-center p-3 m-3 ${active && "btn-outline-danger"}`} onClick={playDrum}><audio className="clip drum-pad" id={e.keyTrigger} src={e.url} />
   {e.keyTrigger}
   </button>)
 }
 
 const App = () => {
-
-   return (
-      <main id="drum-machine" className="bg-primary text-white min-vh-100">
+    const [volume, setVolume] = React.useState(1); 
+    const [recording, setRecording] = React.useState(""); 
+    const [speed, setSpeed] = React.useState(0.4);
+    const playRecord = () => {
+      let musicArr = recording.split(" ");
+      let index = 0;
+      const interval = setInterval(() => {
+        const audioTag = document.getElementById(musicArr[index]);
+        audioTag.currentTime = 0;
+        audioTag.volume = volume;
+        index++;
+        audioTag.play();
+      }, speed * 600);
+      setTimeout(() => clearInterval(interval), 600 * speed * musicArr.length - 1);
+    }
+    return (
+      <main id="drum-machine" className="bg-secondary text-indigo min-vh-100">
         <div id="display" className="text-center"> 
         <h2 className="header"> React Drum Machine </h2>
+        <br />
+        <h5 className="text-red">Volume</h5>
+        <input className="w-40" type="range" onChange={(event) => setVolume(event.target.value)} id="" step="0.1" value={volume} max="1" min="0" />
+        <br />
+        <h5 className="text-red">Speed</h5>
+        <input className="w-40" type="range" onChange={(event) => setSpeed(event.target.value)} id="" step="0.1" value={speed} max="1.5" min="0.1" />
+        <br />
+        <section id="buttons">
         {audioDrum.map(e => (
-          <Drum key={e.id}  e={e} />
+          <Drum  key={e.id}  e={e} volume={volume} setRecording={setRecording} />
         ))}
+        </section>
+        <br />
+        <h4>{recording}</h4>
+        {recording && (
+        <>
+        <button onClick={playRecord} class="btn btn-success mg-1">Play</button>
+        <button onClick={( () => setRecording(''))} class="btn btn-warning mg-1">Clear</button>
+        <br />
+       
+        </>
+        )}
         </div> 
       </main>
    );
