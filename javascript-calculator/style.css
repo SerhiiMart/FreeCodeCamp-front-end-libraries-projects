@@ -4,15 +4,22 @@
   box-sizing: border-box;
 }
 
+h1 {
+  font-size: 25px;
+  color: brown;
+  padding-top: 1%;
+}
+
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 10%;
+  padding-top: 5%;
 }
 
 .system {
   display: grid;
+  background-color: cadetblue;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas: "display display display display"
@@ -25,6 +32,10 @@
 
 #display {
   grid-area: display;
+  background-color: rgb(2, 79, 102);
+  text-align: right;
+  font-size: 21px;
+  border: 2px solid rgb(0, 0, 0);
 }
 .buttonsCal {
   font-size: 21px;
@@ -34,11 +45,34 @@
   padding: 20px 40px;
   background-color: cadetblue;
   color: azure;
+  font-weight: bold;
   border: 2px solid rgb(76, 71, 87);
   cursor: pointer;
 }
 #zero {
   grid-area: zero;
+}
+
+.red {
+  background-color: crimson;
+}
+.green {
+  background-color: rgb(109, 160, 109);
+}
+p {
+  color: blanchedalmond;
+  padding: 8px 20px 5px;
+  font-size: 22px;
+}
+
+#input {
+  width: 100%;
+  background-color: blanchedalmond;
+  text-align: right;
+}
+
+.num {
+  background-color: rgb(10, 8, 15);
 }
 
 #equals {
