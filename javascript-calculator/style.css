@@ -30,7 +30,7 @@ h1 {
                        "zero zero dot equal";
 }
 
-#display {
+.display {
   grid-area: display;
   background-color: rgb(2, 79, 102);
   text-align: right;

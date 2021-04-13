@@ -1,8 +1,8 @@
 const App = () => {
   const [declaration, setDeclaration] = React.useState('');
   const [result, setResult] = React.useState(0);
-  const disRes = (x) => {
-    setDeclaration(prev => prev + x);
+  const disRes = (symbol) => {
+    setDeclaration(prev => prev + symbol);
   };
   const equalizer = () => {
     setResult(eval(declaration))
@@ -20,8 +20,8 @@ const App = () => {
     <>
     <h1 className="text-center mg-3"> React JavaScript Calculator </h1>
     <main className="container">
-      <div class="system">
-        <div id="display">
+      <div className="system">
+        <div id="display" className="display">
           <input type="text" id="input" value={declaration} placeholder="0" disable />
           <p>{result}</p>
         </div>
