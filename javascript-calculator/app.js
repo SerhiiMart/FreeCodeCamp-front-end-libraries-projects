@@ -1,0 +1,11 @@
+const App = () => {
+
+
+  return (
+    <>
+    </>
+  );
+}
+
+
+ReactDOM.render(<App />, document.getElementById('app'));
