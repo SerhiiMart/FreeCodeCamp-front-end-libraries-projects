@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10%;
+}
+
+.system {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: "display display display display"
+                       "AC C div mult"
+                       "seven eight nine minus"
+                       "four five six plus"
+                       "one two three equal"
+                       "zero zero dot equal";
+}
+
+#display {
+  grid-area: display;
+}
+.buttonsCal {
+  font-size: 21px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: cadetblue;
+  color: azure;
+  border: 2px solid rgb(76, 71, 87);
+  cursor: pointer;
+}
+#zero {
+  grid-area: zero;
+}
+
+#equals {
+  grid-area: equal;
+}
