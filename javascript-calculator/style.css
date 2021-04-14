@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: darkgray;
+}
+
 h1 {
   font-size: 25px;
   color: brown;
