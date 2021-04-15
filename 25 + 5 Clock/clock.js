@@ -1,4 +1,5 @@
 const Clock = () => {
+  const [timeon, settimeon] = React.useState(0);
   const [fortime, setFortime] = React.useState(25*60);
   const [stopTime, setStopTime] = React.useState(5*60);
   const [sessionTime, setSessionTime] = React.useState(25*60);
@@ -14,13 +15,16 @@ const Clock = () => {
       if (stopTime <=60 && num < 0) {
         return;
       }
-      setStopTime((prev) => prev + num) 
+      setStopTime((prev) => prev + num);
       
     } else {
       if (sessionTime <= 60 && num < 0){
         return;
       }
       setSessionTime((prev) => prev + num);
+      if (!timeron) {
+        setFortime(sessionTime + num);
+      }
     };
   }
 
