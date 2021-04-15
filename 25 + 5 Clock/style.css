@@ -3,3 +3,23 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+body {
+  background-color: rgb(97, 132, 226);
+}
+
+h1 {
+  font-size: 32px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 40px 220px 40px;
+  justify-items: center;
+  align-items: center;
+}
+
+.title {
+  color: rgb(56, 2, 49);
+  font-weight: 800;
+}
