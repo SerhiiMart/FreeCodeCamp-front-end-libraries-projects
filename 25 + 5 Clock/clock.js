@@ -1,5 +1,5 @@
 const Clock = () => {
-  const [timeon, settimeon] = React.useState(0);
+  const [timeron, setTimeron] = React.useState(false);
   const [fortime, setFortime] = React.useState(25*60);
   const [stopTime, setStopTime] = React.useState(5*60);
   const [sessionTime, setSessionTime] = React.useState(25*60);
@@ -30,7 +30,7 @@ const Clock = () => {
 
   const BreakLength = ({title, changeTime, type, time, timeFormat}) => {
     return (
-      <section className="center">
+      <section >
       <h4>{title}</h4>
       <div className="grid">
         <button className="btn btn-small waves-effect red accent-4" onClick={()=> changeTime(-60, type)}>
@@ -47,11 +47,12 @@ const Clock = () => {
 
 
   return (
-    <main className="text-center center">
+    <main className="text-center center-align">
       <h1 className="title text-decoration-underline"> 25 + 5 Clock App</h1>
       <BreakLength title={"Break Length"} type="break" changeTime={changeTime} time={stopTime} timeFormat={timeFormat} />
       <BreakLength title={"Session Length"} type="session" changeTime={changeTime} time={sessionTime} timeFormat={timeFormat} />
-      <div className="fs-3">{timeFormat(fortime)}</div>
+      <h4>Session</h4>  
+      <div className="time-format">{timeFormat(fortime)}</div>
     </main>
   );
 }
