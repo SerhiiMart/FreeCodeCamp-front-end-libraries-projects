@@ -74,7 +74,7 @@ function Clock () {
               return sessionTime;
             }
             return prev - 1;
-          })
+          });
           nextDate += sec;
         }
       }, 30);
@@ -85,7 +85,7 @@ function Clock () {
       clearInterval(localStorage.getItem("interval-id")); 
     }
     setTimeron(!timeron);
-  }
+  };
   const timeReset = () => {
     clearInterval(localStorage.getItem("interval-id"));
     setFortime(25 * 60);
@@ -95,15 +95,16 @@ function Clock () {
     player.currentTime = 0;
     setTimeron(false);
     setOnStop(false);
-  }
+  };
 
   return (
     <main className="text-center center-align">
       <h1 className="title text-decoration-underline"> 25 + 5 Clock App</h1>
       <div className="grid row">
           <BreakLength  title={"Break Length"} type={"break"} changeTime={changeTime} time={stopTime} timeFormat={timeFormat} formatDisplayTime={formatDisplayTime} />
-          <BreakLength   title={"Session Length"} type={"session"} changeTime={changeTime} time={sessionTime} timeFormat={timeFormat} formatDisplayTime={formatDisplayTime} />
+          <BreakLength title={"Session Length"} type={"session"} changeTime={changeTime} time={sessionTime} timeFormat={timeFormat} formatDisplayTime={formatDisplayTime} />
       </div>
+      <div>
         <h3 id="timer-label"> {onStop ? "Break" : "Session"} </h3>
       <h1 id="time-left" className="time-format timer">{formatDisplayTime(fortime)}</h1>
         <button id="start_stop"  onClick={timeControl} className="btn-large purple darken-4">
@@ -111,6 +112,7 @@ function Clock () {
         </button>
         <button id="reset" onClick={timeReset} className="btn-large purple darken-4"><i className="material-icons">autorenew</i></button>
         <audio ref={(g) => (player = g)} src={soundS} id="beep" />
+      </div>
     </main>
   );
 }
