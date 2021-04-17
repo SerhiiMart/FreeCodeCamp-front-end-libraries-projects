@@ -66,7 +66,6 @@ function Clock () {
           setFortime((prev) => {
             if (prev <= 0 && !onStopVar) {
               onStopVar = true;
-              setOnStop(true);
               return stopTime;
             } else if (prev <= 0 && onStopVar) {
               onStopVar = false;
@@ -97,15 +96,34 @@ function Clock () {
     setOnStop(false);
   };
 
+  const BreakLength = ({title, changeTime, type, time, timeFormat}) => {
+    return (
+      <section >
+      <h1 className="text-decoration-underline" id={type === "break" ? "break-label" : "session-label"}>{title}</h1>
+      <div>
+          <button  id={type === "break" ? "break-decrement" : "session-decrement"}   className="btn btn-small waves-effect red accent-4" onClick={()=> changeTime(-60, type)}>
+            <i className="material-icons">arrow_downward</i>  
+          </button>
+        <h4 className="m-2 display-7"
+          id={type === "break" ? "break-length" : "session-length"}>{timeFormat(time)}
+        </h4>  
+          <button id={type === "break" ? "break-increment" : "session-increment"} className="btn btn-small waves-effect red accent-4" onClick={()=> changeTime(60, type)}>
+            <i className="material-icons">arrow_upward</i>  
+          </button>
+      </div>
+      </section>
+    );
+  };
+
   return (
     <main className="text-center center-align">
-      <h1 className="title text-decoration-underline"> 25 + 5 Clock App</h1>
-      <div className="grid row">
+      <h1 className="title text-decoration-underline display-6 mb-4"> 25 + 5 Clock App</h1>
+      <div className="grid row justify-content-center">
           <BreakLength  title={"Break Length"} type={"break"} changeTime={changeTime} time={stopTime} timeFormat={timeFormat} formatDisplayTime={formatDisplayTime} />
           <BreakLength title={"Session Length"} type={"session"} changeTime={changeTime} time={sessionTime} timeFormat={timeFormat} formatDisplayTime={formatDisplayTime} />
       </div>
-      <div>
-        <h3 id="timer-label"> {onStop ? "Break" : "Session"} </h3>
+      <div className="seSs">
+        <h1 id="timer-label" className="text-decoration-underline"> {onStop ? "Break" : "Session"} </h1>
       <h1 id="time-left" className="time-format timer">{formatDisplayTime(fortime)}</h1>
         <button id="start_stop"  onClick={timeControl} className="btn-large purple darken-4">
           {timeron ? ( <i className="material-icons">pause_circle_filled</i> ) : ( <i className="material-icons">play_circle_filled</i> )}
@@ -117,23 +135,6 @@ function Clock () {
   );
 }
 
-const BreakLength = ({title, changeTime, type, time, timeFormat}) => {
-  return (
-    <section >
-    <h3 id={type === "break" ? "break-label" : "session-label"}>{title}</h3>
-    <div>
-        <button  id={type === "break" ? "break-decrement" : "session-decrement"}   className="btn btn-small waves-effect red accent-4" onClick={()=> changeTime(-60, type)}>
-          <i className="material-icons">arrow_downward</i>  
-        </button>
-      <h4 className="m-2 display-7"
-        id={type === "break" ? "break-length" : "session-length"}>{timeFormat(time)}
-      </h4>  
-        <button id={type === "break" ? "break-increment" : "session-increment"} className="btn btn-small waves-effect red accent-4" onClick={()=> changeTime(60, type)}>
-          <i className="material-icons">arrow_upward</i>  
-        </button>
-    </div>
-    </section>
-  );
-};
+
 
 ReactDOM.render(<Clock />, document.getElementById('root'));
