@@ -26,16 +26,12 @@ button {
 main {
   display: flex;
   flex-direction: column;
-
-  overflow: hidden;
   justify-content: center;
   align-items: center;
   border: 2px solid greenyellow;
   margin: 5px;
   box-shadow: 1px grey;
 }
-
-
 
 .time-format {
   font-size: 35px;
